@@ -1,0 +1,26 @@
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+circle {
+    fill: #df3013;
+    stroke: #333;
+    stroke-width: 1.5px;
+}
+
+text {
+    font: 12px sans-serif;
+    font-weight: bolder;
+    pointer-events: none;
+    text-anchor: middle;
+}
+
+text.node-label {
+    fill: #fff;
+}
+
+text.link-label {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
