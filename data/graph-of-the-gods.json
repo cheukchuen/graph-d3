@@ -4,66 +4,78 @@
         {
             "name":"saturn",
             "age":10000,
+            "type":"titan",
             "_id":256,
             "_type":"vertex"
         },
         {
             "name":"sky",
+            "type":"location",
             "_id":512,
             "_type":"vertex"
         },
         {
             "name":"sea",
+            "type":"location",
             "_id":768,
             "_type":"vertex"
         },
         {
             "name":"jupiter",
             "age":5000,
+            "type":"god",
             "_id":1024,
             "_type":"vertex"
         },
         {
             "name":"neptune",
             "age":4500,
+            "type":"god",
             "_id":1280,
             "_type":"vertex"
         },
         {
             "name":"hercules",
             "age":30,
+            "type":"demigod",
             "_id":1536,
             "_type":"vertex"
         },
         {
             "name":"alcmene",
             "age":45,
+            "type":"human",
             "_id":1792,
             "_type":"vertex"
         },
         {
             "name":"pluto",
             "age":4000,
+            "type":"god",
             "_id":2048,
             "_type":"vertex"
         },
         {
             "name":"nemean",
+            "type":"monster",
             "_id":2304,
             "_type":"vertex"
         },
         {
             "name":"hydra",
+            "type":"monster",
             "_id":2560,
             "_type":"vertex"
         },
         {
             "name":"cerberus",
+            "type":"monster",
             "_id":2816,
             "_type":"vertex"
         },
         {
             "name":"tartarus",
+            "type":"location",
             "_id":3072,
             "_type":"vertex"
         }
