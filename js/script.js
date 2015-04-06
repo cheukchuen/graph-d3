@@ -1,5 +1,6 @@
 var width = window.innerWidth - 10,
-        height = window.innerHeight - 20;
+        height = window.innerHeight - 20,
+        color = d3.scale.category10();
 
 // force layout setup
 var force = d3.layout.force()
@@ -13,7 +14,7 @@ var svg = d3.select("body").append("svg")
         .attr("height", height)
         .attr("pointer-events", "all");
 
-var nodes={}, links={};
+var nodes={}, links={}, types=[];
 
 // load graph (vertices, edges) from json
 d3.json("data/graph-of-the-gods.json", function(error, graph) {
@@ -21,7 +22,10 @@ d3.json("data/graph-of-the-gods.json", function(error, graph) {
 
     // assign vertices to nodes array
     graph.vertices.forEach(function(vertex) {
-        nodes[vertex._id] = {name: vertex.name};
+        nodes[vertex._id] = {name: vertex.name, type: vertex.type};
+        if (types.indexOf(vertex.type) === -1) {
+            types.push(vertex.type);
+        }
     });
     
     // assign edges to links array
@@ -93,12 +97,21 @@ d3.json("data/graph-of-the-gods.json", function(error, graph) {
             .attr("y", ".31em")
             .text(function(d) { return d.label; });
 
+    // color according to nodes type
+    var o = d3.scale.ordinal()
+            .domain(types)
+            .rangePoints([0, 5]);
+    
     // circle displayed for nodes
     var circle = svg.append("g").selectAll("circle")
             .data(force.nodes())
             .enter().append("circle")
             .attr("r", 30)
+            .style("fill", function(d) { return color(o(d.type)); })
             .call(force.drag);
+
+    circle.append("title")
+            .text(function(d) {return d.type; });
 
     // name displayed for nodes
     var text = svg.append("g").selectAll("text")
